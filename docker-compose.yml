@@ -1,0 +1,21 @@
+version: "3.0"
+
+services:
+  mysqldb:
+    env_file:
+      - file.env
+    image: mysql
+    hostname: mysql
+    container_name: mysql
+    restart: always
+    environment:
+      USER: "admin"
+      MYSQL_ROOT_PASSWORD: "invalid"
+      MYSQL_DATABASE: "test"
+      MYSQL_HOST: "host.docker.internal"
+    volumes:
+      - mysql:/var/lib/mysql
+      - mysql_config:/etc/mysql
+volumes:
+  mysql:
+  mysql_config:    

@@ -1,24 +1,21 @@
 #!/usr/bin/python3
-import pymysql
-mydb = pymysql.connect(
-  host="localhost",
-  user="admin",
-  database="test"
-)
+import mysql.connector
+hostname="ip-10-0-1-243.ec2.internal"
+mydb =mysql.connector.connect(host=hostname,user="admin", database="test")
+
 
 mycursor = mydb.cursor()
-
 from translate import Translator
 import json
 import boto3
 from seqtolang import Detector
 
 detector = Detector()
-import os
-import sys
+#import os
+#import sys
 s3_client=boto3.client('s3')
 S3_BUCKET = 'reviewsbct'
-S3_PREFIX = 'sample_'
+S3_PREFIX = 'sample_0'
 
 
 response = s3_client.list_objects_v2(Bucket=S3_BUCKET,Prefix=S3_PREFIX, StartAfter=S3_PREFIX,)
@@ -41,15 +38,6 @@ for s3_file in s3_files:
         detected_lang= "French"
         translator= Translator(from_lang="French",to_lang="English")
     trans=""
-    reviewt= review_text.split(" ")
-
-    for i in reviewt:
-        try:
-            translation=translator.translate(i)
-            trans+=translation+" "
-        except:
-            print (trans+"/n hi")
-            continue
     score=float(tokens[0][1])
     sql = "INSERT INTO movies (_id, movie_name, release_year, producer,director,review ,user_name, detected_lang,trans_text,score ) VALUES (%s,%s, %s,%s ,%s, %s,%s,%s,%s, %s)"
     val=(_id, movie_name, release_year,producer,director,review_text ,user_name, detected_lang,trans,score)
