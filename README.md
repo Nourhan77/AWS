@@ -1,4 +1,4 @@
-Install from source:# Solution Diagram
+# Solution Diagram
 ![Solution Diagram](https://user-images.githubusercontent.com/60991241/160599286-cabc4fdc-9782-48fd-8001-abaceacd6237.png)
 
 We will use On Demand Instance to reduce cost as we don't sure how many times we will use the application,
