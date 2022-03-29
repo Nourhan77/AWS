@@ -1,5 +1,5 @@
 # Solution Diagram
-![Solution Diagram](https://user-images.githubusercontent.com/60991241/160599286-cabc4fdc-9782-48fd-8001-abaceacd6237.png)
+![Solution Diagram](https://user-images.githubusercontent.com/60991241/160641510-e3aa024a-49fb-4ccd-9091-ee6acc9f1e3c.png)
 
 We will use On Demand Instance to reduce cost as we don't sure how many times we will use the application,
 the number of times we will use it depends on reviews collected from users which is not constant.
