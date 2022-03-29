@@ -1,9 +1,11 @@
 # Solution Diagram
-![Solution Diagram](https://user-images.githubusercontent.com/60991241/160641510-e3aa024a-49fb-4ccd-9091-ee6acc9f1e3c.png)
+![Solution Diagram (2)](https://user-images.githubusercontent.com/60991241/160643475-50777aa3-06e2-428d-a99a-0ee9110a6422.png)
+
 
 We will use On Demand Instance to reduce cost as we don't sure how many times we will use the application,
 the number of times we will use it depends on reviews collected from users which is not constant.
 Also, we need to use Infrequent Access S3.
+
 
 # Scaling
 We can create our own custom strategy, per the metrics and thresholds we define for scaling. 
